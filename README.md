@@ -13,10 +13,10 @@ hmc ... Hamiltonian Monte Carlo or sometime named hybrid Monte Carlo, default is
 ```
 
 ```
-x <- c(1,2,3,4,5)
-y <- c(5,4,3,2,1)
+x <- rnorm(5, 0, 1)
+y <- rnorm(5, 0, 2)
 out <- bayes.t.test(x, y)
 mean_diff <- out[, "mu1"] - out[, "mu2"]
 hist(mean_diff, breaks=25)
-abline(h=quantile(mean_diff, .025))
-abline(h=quantile(mean_diff, .975))
+abline(v=quantile(mean_diff, .025))
+abline(v=quantile(mean_diff, .975))
