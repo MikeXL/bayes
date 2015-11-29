@@ -1,10 +1,18 @@
 
 metrop.proposal.fun <- function(theta){
-    return(rnorm(length(theta), mean=theta, sd=rep(sqrt(.5), length(theta))))
+  # finding the right scaling factor is more of an art than science
+  # or try and error to look for the best fit on acceptance %
+
+  return(rnorm(length(theta), mean=theta, sd=rep(sqrt(.5), length(theta))))
 }
 
-hamiltonian.proposal.fun <- function(thta){
-  return(1)
+
+simple.proposal.fun <- function(theta){
+  return(theta+rnorm(1))
+}
+
+hamiltonian.proposal.fun <- function(theta){
+  return(theta+rnorm(1))
 }
 
 mcmc <- function(fun, theta.init, nmc, nbi, hmc=FALSE, ...) {

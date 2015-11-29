@@ -1,5 +1,8 @@
 # bayes
 
+*Disclaimer:* _this package is created for fun, not practically for production use_, but please feel free to enhance it and use.
+
+
 ## Introduction
 Just would like to have fun with bayesian and Monte Carlo simulations. There are good packages like MCMCpack for simulation, however it does not support Hamiltonian, at least not that I know of.
 
