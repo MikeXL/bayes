@@ -53,8 +53,10 @@ mc.out <- MCMCmetrop1R(ttest.fun, theta.init=init, x=x, y=y, mcmc=20000, burnin=
 plot(mc.out)
 ```
 
-The easiest way to run the simulation is from [this][http://www.sumsar.net/best_online/]
+The easiest way to run the simulation is from [this][2] or
 or install the BEST R package.
+
+Or else, I have an version published on Azure ML [here][1].
 
 ## Installation
 
@@ -62,3 +64,8 @@ or install the BEST R package.
 library(devtools)
 install_github("mikexl/bayes")
 ```
+
+
+
+[1]: https://gallery.cortanaanalytics.com/Experiment/dcf16dbf200c4d4b88d091b642fb7770
+[2]: http://www.sumsar.net/best_online/
