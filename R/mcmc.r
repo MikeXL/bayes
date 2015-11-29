@@ -1,6 +1,6 @@
 
 metrop.proposal.fun <- function(theta){
-    return(rnorm(length(theta), mean=theta, sd=rep(.3, length(theta))))
+    return(rnorm(length(theta), mean=theta, sd=rep(sqrt(.5), length(theta))))
 }
 
 hamiltonian.proposal.fun <- function(thta){
@@ -30,6 +30,6 @@ mcmc <- function(fun, theta.init, nmc, nbi, hmc=FALSE, ...) {
       chain[i+1, ] <- chain[i, ]     #reject
     }
   }
-  
+
   return(chain[-(1:nbi), ])
 }
