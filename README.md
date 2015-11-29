@@ -31,3 +31,10 @@ abline(v=quantile(mean_diff, .975))
 
 
 acceptance = 1-mean(duplicated(out[])))
+
+## Installation
+
+```
+library(devtools)
+install_github("mikexl/bayes")
+```
