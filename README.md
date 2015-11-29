@@ -56,9 +56,12 @@ y ... the second group
 ```
 
 Here is the execution based on the toy mcmc simulation function I wrote above.
+To make it a bit more interesting, [here][3] is one of the million the caffeine study.
+I have uploaded the simulated results in data/caffeine.rda and also created an [tableau view][4].
+
 ```
-x <- rnorm(5, 0, 1)
-y <- rnorm(5, 0, 2)
+x <- c(105, 119, 100, 97, 96, 101, 94, 95, 98)
+y <- y <- c(96, 99, 94, 89, 96, 93, 88, 105, 88)
 out <- bayes.t.test(x, y)
 mean_diff <- out[, "mu1"] - out[, "mu2"]
 hist(mean_diff, breaks=25)
@@ -103,3 +106,5 @@ install_github("mikexl/bayes")
 
 [1]: https://gallery.cortanaanalytics.com/Experiment/dcf16dbf200c4d4b88d091b642fb7770
 [2]: http://www.sumsar.net/best_online/
+[3]: http://learntech.uwe.ac.uk/da/Default.aspx?pageid=1438
+[4]: https://public.tableau.com/profile/spock/
