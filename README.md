@@ -4,6 +4,8 @@
 
 
 ## Introduction
+The Phantom Menace: _P(A|B) = P(B|A) * P(A) / P(B)_  
+
 Just would like to have fun with bayesian and Monte Carlo simulations. There are good packages like MCMCpack for simulation, however it does not support Hamiltonian, at least not that I know of.
 
 The t.test piece is based on J.K. Kruschke's paper on _Bayesian Estimation Supersedes the t-test_ (BEST).
