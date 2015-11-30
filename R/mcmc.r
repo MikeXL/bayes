@@ -28,6 +28,12 @@ hamiltonian.proposal.fun <- function(theta){
   return(theta+rnorm(length(theta)))
 }
 
+# Metroplis Hasting Monte Carlo Simulation
+# fun .......... the logged posterior sampling function
+# theta.init ... initial parameter(s) value
+# nmc .......... number of Markov Chains
+# nbi .......... number of burn-ins
+# hmc .......... reserved for future Hamiltonian or RWHMC implementation
 mcmc <- function(fun, theta.init, nmc, nbi, hmc=FALSE, ...) {
 
   iterations <- nmc + nbi
@@ -38,7 +44,7 @@ mcmc <- function(fun, theta.init, nmc, nbi, hmc=FALSE, ...) {
   if(hmc){
     propose <- hamiltonian.proposal.fun  #hamiltonian
   }else{
-    propose <- metrop.proposal.fun       #metropolis hasting
+    propose <- metrop.proposal.fun       #random walk
   }
 
   for(i in 1:(iterations-1)) {
