@@ -98,15 +98,21 @@ The easiest way to run the simulation is from [this][2] or install the BEST R pa
 This is the tool J.K.K used for his paper.
 
 ### PROC MCMC
-SAS has a PROC MCMC 
+SAS has a PROC MCMC
 
 ## Installation
 
+Install from GitHub
 ```
 library(devtools)
 install_github("mikexl/bayes")
 ```
 
+Or clone the source from github then install from command line
+```
+R CMD build bayes
+R CMD INSTALL bayes_0.2.2.tar.gz
+```
 
 
 [1]: https://gallery.cortanaanalytics.com/Experiment/dcf16dbf200c4d4b88d091b642fb7770
