@@ -39,11 +39,13 @@ hmc ... Hamiltonian Monte Carlo or sometime named hybrid Monte Carlo,
 ```
 
 
-## t.test
-### the toy mcmc
+## BEST (Bayesian Estimation Supersedes t.test)
+
 To do the t.test in bayesian way, is quite simple and straightforward too.
 Based on J.K. Kurschke's paper, draw samples from T Distribution. That's it.
-The detailed prior and likelihood setup, please see code in R/best.r
+T
+### the toy mcmc
+he detailed prior and likelihood setup, please see code in R/best.r
 
 And of course, I have created another toy function bayes.t.test
 for independent two sample t.test.
@@ -94,6 +96,9 @@ plot(mc.out)
 
 The easiest way to run the simulation is from [this][2] or install the BEST R package.
 This is the tool J.K.K used for his paper.
+
+### PROC MCMC
+SAS has a PROC MCMC 
 
 ## Installation
 
