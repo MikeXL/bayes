@@ -10,7 +10,7 @@ ttest.fun <- function(theta, x, y) {
 
   # priors
   sigma <- sd(c(x,y))
-  log.prior <- dnorm(mu1, sd=1000*sigma, log=T) + dunif(sd1, min=sigma/1000, max=sigma*1000, log=T) +
+  log.prior <- dnorm(mu1, sd=1e6*sigma, log=T) + dunif(sd1, min=sigma/1000, max=sigma*1000, log=T) +
   				dnorm(mu2, sd=1000*sigma, log=T) + dunif(sd2, min=sigma/1000, max=sigma*1000, log=T) +
   				dexp(nu-1, 1/29, log=T)
 
