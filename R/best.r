@@ -13,9 +13,9 @@ ttest.fun <- function(theta, x, y) {
   sigma <- sd(c(x,y))
   log.prior <- dnorm(mu1, sd=1e6*sigma, log=T) +                          # mu1 ~ N(0, sd*1e3)
                dunif(sd1, min=sigma/1000, max=sigma*1000, log=T) +        # sd1 ~ unif(sd*1e-3, sd*1e3)
-  				     dnorm(mu2, sd=1000*sigma, log=T) +                         # mu2 ~ N(0, sd*1e3)
+  				     dnorm(mu2, sd=1e6*sigma, log=T) +                         # mu2 ~ N(0, sd*1e3)
                dunif(sd2, min=sigma/1000, max=sigma*1000, log=T) +        # sd2 ~ unif(sd*1e-3, sd*1e3)
-  				     dexp(nu-1, 1/29, log=T)                                    # nu  ~ exp(1/29) + 1
+  				     dexp((nu-1), 1/29, log=T)                                    # nu  ~ exp(1/29) + 1
 
   # likelihood
 	log.like <- sum(dt({x-mu1}/sd1, df=nu, log=T) - log(sd1)) +      # x ~ T(mu1, sd1, nu) ~ t({x-mu}/sd, nu)/sd
