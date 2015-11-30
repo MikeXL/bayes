@@ -12,8 +12,11 @@ simple.proposal.fun <- function(theta){
 }
 
 # hamiltonian gradient function
+# this is the pain in the arse as it is the gradient of Log Likelihood
+# there are researches on the gradient free hamiltonian monte carlo
+# ?
 grad_U <- function(theta) {
-  return(0)
+  return(Inf)
 }
 
 # from R.M. Neal's paper MCMC using Hamiltonian dynamics
