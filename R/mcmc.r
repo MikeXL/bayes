@@ -6,55 +6,6 @@ metrop.proposal.fun <- function(theta){
   return(rnorm(length(theta), mean=theta, sd=rep(sqrt(.5), length(theta))))
 }
 
-
-simple.proposal.fun <- function(theta){
-  return(theta+rnorm(1))
-}
-
-# hamiltonian gradient function
-# this is the pain in the arse as it is the gradient of Log Likelihood
-# there are researches on the gradient free hamiltonian monte carlo
-# ?
-grad_U <- function(theta) {
-  return(Inf)
-}
-
-# from R.M. Neal's paper MCMC using Hamiltonian dynamics
-hmc = function (U, grad_U, L, epsilon, current_q, ...)
-{
-  #L=20
-  #epsilon = .18
-  q = current_q
-  p = rnorm(length(q),0,1)  # independent standard normal variates
-  current_p = p
-
-  p = p - epsilon * grad_U(q) / 2           # Make a half step for momentum at the beginning
-  for (i in 1:L)                            # Alternate full steps for position and momentum
-  {
-    q = q + epsilon * p                     # Make a full step for the position
-    if (i!=L) p = p - epsilon * grad_U(q)   # Make a full step for the momentum, except at end of trajectory
-  }
-  p = p - epsilon * grad_U(q) / 2           # Make a half step for momentum at the end.
-
-  # Negate momentum at end of trajectory to make the proposal symmetric
-  p = -p
-  # Evaluate potential and kinetic energies at start and end of trajectory
-  current_U = U(current_q, ...)
-  current_K = sum(current_p^2) / 2
-  proposed_U = U(q, ...)
-  proposed_K = sum(p^2) / 2
-
-  # Accept or reject the state at end of trajectory, returning either
-  # the position at the end of the trajectory or the initial position
-  if (runif(1) < exp(current_U-proposed_U+current_K-proposed_K))
-  {
-    return (q)          # accept
-  }else{
-    return (current_q)  # reject
-  }
-}
-
-
 hamiltonian.proposal.fun <- function(theta){
   #forget it.. it is a good theory
   # H(q, p) = U(q) + K(p) .. the potential and kinetic energy
@@ -66,10 +17,11 @@ hamiltonian.proposal.fun <- function(theta){
   # hmc proposal and actual simulation is tight up
   #  condition:
   #     runif(1) < exp(-U(q*)+U(q)-K(p*)+K(p))
+  # no to mention the painful gradient (log likelihood function)
   #
   # good read, I'll leave the work for others :)
   #
-  #return(hmc(theta, ...))
+  # for now, it does exactly the random walk
 
   return(theta+rnorm(length(theta)))
 }
