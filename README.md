@@ -98,7 +98,28 @@ The easiest way to run the simulation is from [this][2] or install the BEST R pa
 This is the tool J.K.K used for his paper.
 
 ### PROC MCMC
-SAS has a PROC MCMC
+SAS has a PROC MCMC and it is quite straightforward to use.
+
+```
+ods graphics on;
+proc mcmc data=kit_paired outpost=out nmc=20000 nbi=0 diag=all;
+
+	parms mu1 5 mu2 4 sigma1 2.14 sigma2 2.56 nu 5;
+
+	prior mu1     ~ N(mu1, sd=2.34*1e6);    
+	prior sigma1  ~ uniform(sigma1 * 1e-3, sigma1*1e3);   
+	prior mu2     ~ N(mu2, sd=2.34*1e6);    
+	prior sigma2  ~ uniform(sigma2*1e-3, sigma2*1e3);   
+	prior nu      ~ expon(iscale=1/29);
+
+	model a ~ t(mu1, sd=sigma1, nu+1);
+	model b ~ t(mu2, sd=sigma2, nu+1);
+
+run;
+ods graphics off;
+```
+
+
 
 ## Installation
 
