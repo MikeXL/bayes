@@ -28,7 +28,7 @@ ttest.fun <- function(theta, x, y) {
 }
 
 bayes.t.test <- function(x, y, nmc=20000, nbi=20000) {
-  out <- mcmc(ttest.fun, c(mean(x), sd(x), mean(y), sd(y), 5), nmc, nbi, x=x, y=y)
+  out <- bayes::mcmc(ttest.fun, c(mean(x), sd(x), mean(y), sd(y), 5), nmc, nbi, x=x, y=y)
   colnames(out) <- c("mu1", "sd1", "mu2", "sd2", "nu")
   return(out)
 }
