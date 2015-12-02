@@ -1,5 +1,5 @@
 
-metrop.proposal.fun <- function(theta){
+metrop.rwalker.proposal.fun <- function(theta){
   # finding the right scaling factor is more of an art than science
   # or try and error to look for the best fit on acceptance %
 
@@ -18,10 +18,12 @@ hamiltonian.proposal.fun <- function(theta){
   #  condition:
   #     runif(1) < exp(-U(q*)+U(q)-K(p*)+K(p))
   # no to mention the painful gradient (log likelihood function)
+  # there are research work being done on the gradient free hamiltonian
+  # don't quote on me, it is still an exciting new area
   #
   # good read, I'll leave the work for others :)
   #
-  # for now, it does exactly the random walk
+  # for now, it does exactly the random walk if hmc = TRUE
 
   return(theta+rnorm(length(theta))*2.38)
 }
@@ -32,7 +34,7 @@ hamiltonian.proposal.fun <- function(theta){
 # nmc .......... number of Markov Chains
 # nbi .......... number of burn-ins
 # hmc .......... reserved for future Hamiltonian or RWHMC implementation
-mcmc <- function(fun, theta.init, nmc, nbi, hmc=FALSE, ...) {
+mcmc <- function(fun, theta.init, nmc, nbi, hmc = FALSE, ...) {
 
   iterations <- nmc + nbi
   chain <- array(dim = c(iterations, length(theta.init)))
@@ -40,9 +42,9 @@ mcmc <- function(fun, theta.init, nmc, nbi, hmc=FALSE, ...) {
 
   # choose the proposal function
   if(hmc){
-    propose <- hamiltonian.proposal.fun  #hamiltonian
+    propose <- hamiltonian.proposal.fun          #hamiltonian
   }else{
-    propose <- metrop.proposal.fun       #random walk
+    propose <- metrop.rwalker.proposal.fun       #random walk
   }
 
   for(i in 1:(iterations-1)) {
