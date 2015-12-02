@@ -1,8 +1,8 @@
 
 Package: bayes
 Title: Fun with Bayes and Monte Carlo Simulation
-Version: 0.2.6
-Date: 2015-11-28
+Version: 0.2.8
+Date: 2015-12-01
 Author: M.J. Liu @TigerPlusDragon
 Maintainer: Mike <mike@mscanada.net>
 Description: Monte Carlo Simulation (Metropolis Hasting and Hamiltonian / hybrid) and bayesian t.test
