@@ -3,7 +3,7 @@ metrop.proposal.fun <- function(theta){
   # finding the right scaling factor is more of an art than science
   # or try and error to look for the best fit on acceptance %
 
-  return(rnorm(length(theta), mean=theta, sd=rep(sqrt(.5), length(theta))))
+  return(theta+rnorm(length(theta))*2.38)   # random walk with scale factor 2.38
 }
 
 hamiltonian.proposal.fun <- function(theta){
@@ -23,7 +23,7 @@ hamiltonian.proposal.fun <- function(theta){
   #
   # for now, it does exactly the random walk
 
-  return(theta+rnorm(length(theta)))
+  return(theta+rnorm(length(theta))*2.38)
 }
 
 # Metroplis Hasting Monte Carlo Simulation
