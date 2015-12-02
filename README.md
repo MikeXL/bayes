@@ -107,9 +107,9 @@ proc mcmc data=caffeine outpost=out nmc=20000 nbi=0 diag=all;
 
 	parms mu1 5 mu2 4 sigma1 2.14 sigma2 2.56 nu 5;
 
-	prior mu1     ~ N(mu1, sd=2.34*1e6);                   /* pooled standard deviation */
-	prior sigma1  ~ uniform(sigma1 * 1e-3, sigma1*1e3);   
-	prior mu2     ~ N(mu2, sd=2.34*1e6);                   /* pooled standard deviation */
+	prior mu1     ~ N(mu1, sd=2.34*1e3);                   /* pooled standard deviation */
+	prior sigma1  ~ uniform(sigma1*1e-3, sigma1*1e3);   
+	prior mu2     ~ N(mu2, sd=2.34*1e3);                   /* pooled standard deviation */
 	prior sigma2  ~ uniform(sigma2*1e-3, sigma2*1e3);     
 	prior nu      ~ expon(iscale=1/29);
 
