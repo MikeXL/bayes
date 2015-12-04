@@ -111,10 +111,10 @@ proc mcmc data=caffeine outpost=out nmc=20000 nbi=0 diag=all;
 	prior sigma1  ~ uniform(sigma1*1e-3, sigma1*1e3);   
 	prior mu2     ~ N(mu2, sd=2.34*1e3);                   /* pooled standard deviation */
 	prior sigma2  ~ uniform(sigma2*1e-3, sigma2*1e3);     
-	prior nu      ~ expon(iscale=1/29);
+	prior nu      ~ expon(iscale=1/29);                    /* it is actually nu - 1 */
 
-	model a ~ t(mu1, sd=sigma1, nu+1);
-	model b ~ t(mu2, sd=sigma2, nu+1);
+	model a ~ t(mu1, sd=sigma1, (nu+1));
+	model b ~ t(mu2, sd=sigma2, (nu+1));
 
 run;
 ods graphics off;
