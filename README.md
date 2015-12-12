@@ -116,8 +116,8 @@ proc mcmc data = caffeine outpost = out nmc = 20000 nbi = 2000
 	prior sigma2  ~ uniform(sigma2*1e-3, sigma2*1e3);     
 	prior nu      ~ expon(iscale=1/29);                    /* it is actually nu - 1 */
 
-  mu_diff = mu1 - mu2;
-  log_nu  = log(nu+1);
+	mu_diff = mu1 - mu2;
+	log_nu  = log(nu+1);
 
 	model a ~ t(mu1, sd=sigma1, (nu+1));
 	model b ~ t(mu2, sd=sigma2, (nu+1));
