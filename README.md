@@ -103,7 +103,10 @@ I have keyed in a lot numbers
 
 ```
 ods graphics on;
-proc mcmc data=caffeine outpost=out nmc=20000 nbi=0 diag=all;
+proc mcmc data = caffeine outpost = out nmc = 20000 nbi = 2000 
+          diag = all
+          monitor = (mu1 sigma1 mu2 sigma2 mu_diff log_nu)
+;
 
 	parms mu1 5 mu2 4 sigma1 2.14 sigma2 2.56 nu 5;
 
@@ -112,6 +115,9 @@ proc mcmc data=caffeine outpost=out nmc=20000 nbi=0 diag=all;
 	prior mu2     ~ N(mu2, sd=2.34*1e3);                   /* pooled standard deviation */
 	prior sigma2  ~ uniform(sigma2*1e-3, sigma2*1e3);     
 	prior nu      ~ expon(iscale=1/29);                    /* it is actually nu - 1 */
+
+  mu_diff = mu1 - mu2;
+  log_nu  = log(nu+1);
 
 	model a ~ t(mu1, sd=sigma1, (nu+1));
 	model b ~ t(mu2, sd=sigma2, (nu+1));
