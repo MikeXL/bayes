@@ -1,3 +1,4 @@
 
 export(mcmc)
 export(bayes.t.test)
+export(bayes.possion.test)
