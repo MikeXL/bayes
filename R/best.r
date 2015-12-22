@@ -57,7 +57,7 @@ ttest.1g.fun <- function(theta, x) {
 # therefore may appropriate round(out, int(sqrt(nmc) % 10))
 bayes.t.test <- function(x, y=NULL, nmc=20000, nbi=20000) {
   if(is.null(y)) {                                                   # one group
-    out <- bayes::mcmc(ttest.fun, c(mean(x), sd(x), 5), nmc, nbi, x=x)
+    out <- bayes::mcmc(ttest.1g.fun, c(mean(x), sd(x), 5), nmc, nbi, x=x)
     colnames(out) <- c("mu", "sd", "nu")
   } else {                                                           # two groups
     out <- bayes::mcmc(ttest.fun, c(mean(x), sd(x), mean(y), sd(y), 5), nmc, nbi, x=x, y=y)
