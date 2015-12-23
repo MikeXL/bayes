@@ -139,7 +139,7 @@ install_github("mikexl/bayes")
 Or clone the source from github then install from command line
 ```
 R CMD build bayes
-R CMD INSTALL bayes_0.2.6.tar.gz
+R CMD INSTALL bayes_0.6.1.tar.gz
 ```
 
 
