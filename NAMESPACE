@@ -2,3 +2,4 @@
 export(mcmc)
 export(bayes.t.test)
 export(bayes.poisson.test)
+export(bayes.binomial.test)
