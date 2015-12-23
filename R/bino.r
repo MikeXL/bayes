@@ -7,8 +7,9 @@ binomial.fun <- function(theta, x, y) {
   N.Success.y <- y[,1]
   N.Trial.y   <- y[,2]
 
-
-  # priors
+  # flat priors
+  # log.priors <- dbeta(theta[1], 1, 1, log=T) + dbeta(theta[2], 1, 1, log=T)
+  # Jeffrey's priors
   log.priors <- dbeta(theta[1], .5, .5, log=T) + dbeta(theta[2], .5, .5, log=T)
 
   # likelihood
