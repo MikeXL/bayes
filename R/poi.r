@@ -16,7 +16,7 @@ poisson.fun <- function(theta, x, y) {
 
 poisson.1g.fun <- function(theta, x) {
   # parameters
-  lambda <- theta[1]
+  lambda <- theta
 
   # priors
   log.priors <- dgamma(lambda, .5, 1e-5, log=T)
@@ -33,7 +33,7 @@ bayes.poisson.test <- function(x, y=NULL, nmc=20000, nbi=20000) {
   if(is.null(y)) {
     theta.init <- (sum(x)+.5)/length(x)
     out <- bayes::mcmc(poisson.1g.fun, theta.init, nmc, nbi, x=x)
-    colnames(out) <- c("lambda")
+    #colnames(out) <- c("lambda")
   } else {
     theta.init <- c((sum(x)+.5)/length(x), (sum(y)+.5)/length(y))
     out <- bayes::mcmc(poisson.fun, theta.init, nmc, nbi, x=x, y=y)
