@@ -3,7 +3,7 @@ metrop.rwalker.proposal.fun <- function(theta){
   # finding the right scaling factor is more of an art than science
   # or try and error to look for the best fit on acceptance %
 
-  return(rnorm(n=length(theta), mean=theta, sd=rep(sqrt(.5), length(theta))))   
+  return(rnorm(n=length(theta), mean=theta, sd=rep(sqrt(.5), length(theta))))
 }
 
 hamiltonian.proposal.fun <- function(theta){
@@ -22,6 +22,7 @@ hamiltonian.proposal.fun <- function(theta){
   # don't quote on me, it is still an exciting new area
   #
   # good read, I'll leave the work for others :)
+  # indeed, please refer to hmc.r
   #
   # for now, it does exactly the random walk if hmc = TRUE
 
