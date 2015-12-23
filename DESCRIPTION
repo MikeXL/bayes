@@ -1,14 +1,14 @@
 
 Package: bayes
 Title: Fun with Bayes and Monte Carlo Simulation
-Version: 0.3.9
+Version: 0.6.1
 Date: 2015-12-21
 Author: M.J. Liu @TigerPlusDragon
 Maintainer: Mike <mike@mscanada.net>
 Description: Monte Carlo Simulation (Metropolis Hasting and Hamiltonian / hybrid)
-            and bayesian t.test, poisson test
+            and bayesian t.test, poisson test, binomial test
 License: MIT
 URL: http://mike.mscanada.net
 BugReports: http://github.com/MikeXL/bayes
 NeedsCompilation: no
-Packaged: 2015-12-21 20:08:43 UTC; Mike
+Packaged: 2015-12-23 4:02:43 UTC; Mike
