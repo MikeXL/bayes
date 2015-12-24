@@ -85,3 +85,4 @@ or do it in the exciting way
   plot(mcmc.out)
   summary(mcmc.out)
 ```
+data might be too perfect as it is produced by the rbinom function. will plug in real data to see later on.
