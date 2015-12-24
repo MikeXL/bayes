@@ -1,7 +1,7 @@
 
 Package: bayes
 Title: Fun with Bayes and Monte Carlo Simulation
-Version: 0.6.6
+Version: 0.6.8
 Date: 2015-12-21
 Author: M.J. Liu @TigerPlusDragon
 Maintainer: Mike <mike@mscanada.net>
@@ -11,4 +11,4 @@ License: MIT
 URL: http://mike.mscanada.net
 BugReports: http://github.com/MikeXL/bayes
 NeedsCompilation: no
-Packaged: 2015-12-23 14:11:43 UTC; Mike
+Packaged: 2015-12-24 05:10:43 UTC; Mike
