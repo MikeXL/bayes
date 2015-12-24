@@ -74,15 +74,16 @@ in the boring way
 or do it in the exciting way
 
 ```
+  require(coda)
   x <- cbind(a, rep(n, length(a)))
   y <- cbind(b, rep(n, length(b)))
-  out <- bayes.binomial.test(x, y)
-  out <- cbind(out, NA)
-  colnames(out) <- c("theta1", "theta2", "theta1 - theta2")
-  out[, 3] <- out[, 1] - out[, 2]
-  require(coda)
-  mcmc.out <- as.mcmc(out)
-  plot(mcmc.out)
-  summary(mcmc.out)
+  out.x <- bayes.binomial.test(x)     # estimate probability (theta) for x
+  out.y <- bayes.binomial.test(y)     # estimate probability (theta) for y
+  mcmc.out.x <- as.mcmc(out.x)
+  mcmc.out.y <- as.mcmc(out.y)
+  par(mfrow=c(2,2))
+  plot(mcmc.out.x)
+  plot(mcmc.out.y)
+  summary(mcmc.out.x)
+  summary(mcmc.out.y)
 ```
-data might be too perfect as it is produced by the rbinom function. will plug in real data to see later on.
