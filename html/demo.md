@@ -81,7 +81,6 @@ or do it in the exciting way
   out.y <- bayes.binomial.test(y)     # estimate probability (theta) for y
   mcmc.out.x <- as.mcmc(out.x)
   mcmc.out.y <- as.mcmc(out.y)
-  par(mfrow=c(2,2))
   plot(mcmc.out.x)
   plot(mcmc.out.y)
   summary(mcmc.out.x)
