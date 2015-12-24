@@ -76,7 +76,7 @@ or do it in the exciting way
 ```
   x <- cbind(a, rep(n, length(a)))
   y <- cbind(b, rep(n, length(b)))
-  out <- bayes.binomial.test(x, y, nmc=1000000)
+  out <- bayes.binomial.test(x, y)
   out <- cbind(out, NA)
   colnames(out) <- c("theta1", "theta2", "theta1 - theta2")
   out[, 3] <- out[, 1] - out[, 2]
