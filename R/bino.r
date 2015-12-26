@@ -16,7 +16,12 @@ binomial.fun <- function(theta, x, prior) {
 
   ifelse(is.na(ll) | is.nan(ll), -Inf, ll)
 }
-
+#
+# x is a matrix (series) of success and trials
+#      [,1] [,2]
+# [1,]   23  100           100 trials with 23 success
+# [2,]   24  200           200 trials with 24 success
+#
 bayes.binomial.test <- function(x, prior=c(1, 1), nmc=20000, nbi=20000) {
   theta.init <- (sum(x[, 1])+1) / (sum(x[, 2])+2)
   out <- bayes::mcmc(binomial.fun, theta.init, nmc, nbi, x=x, prior=prior)
