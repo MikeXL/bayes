@@ -26,7 +26,7 @@ hamiltonian.proposal.fun <- function(theta){
   #
   # for now, it does exactly the random walk if hmc = TRUE
 
-  return(theta+rnorm(length(theta))*2.38)
+  return(theta+rnorm(length(theta), sd=2.38))
 }
 
 # Metroplis Hasting Monte Carlo Simulation
