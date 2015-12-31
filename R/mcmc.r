@@ -3,7 +3,9 @@ metrop.rwalker.proposal.fun <- function(theta){
   # finding the right scaling factor is more of an art than science
   # or try and error to look for the best fit on acceptance %
 
-  return(rnorm(n=length(theta), mean=theta, sd=rep(sqrt(.5), length(theta))))
+  n.theta  <- length(theta)
+  scale.sd <- round(2.38/sqrt(n.theta), 2)
+  return(rnorm(n=n.theta, mean=theta, sd=rep(scale.sd, n.theta)))
 }
 
 hamiltonian.proposal.fun <- function(theta){
