@@ -3,6 +3,7 @@ metrop.rwalker.proposal.fun <- function(theta){
   # finding the right scaling factor is more of an art than science
   # or try and error to look for the best fit on acceptance %, ideally .234
   # good starting point 2.38/sqrt(N.dimensions)
+  # looking to replace rnorm with multivariate version mvrnorm ? 
 
   n.theta  <- length(theta)
   scale.sd <- round(2.38/sqrt(n.theta), 2)
