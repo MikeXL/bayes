@@ -103,7 +103,7 @@ I have keyed in a lot numbers
 
 ```
 ods graphics on;
-proc mcmc data = caffeine outpost = out nmc = 20000 nbi = 2000 
+proc mcmc data = caffeine outpost = out nmc = 20000 nbi = 2000
           diag = all
           monitor = (mu1 sigma1 mu2 sigma2 mu_diff log_nu)
 ;
@@ -142,6 +142,9 @@ R CMD build bayes
 R CMD INSTALL bayes_0.6.1.tar.gz
 ```
 
+## Future
+1. allow dynamically passing proposal scaling factor (sigma) scale.sd as a parameter of _mcmc_ function
+2. return _prior_, _likelihood_ and _posterior_ to the result set or as a cheat, add them into theta
 
 [1]: https://gallery.cortanaanalytics.com/Experiment/dcf16dbf200c4d4b88d091b642fb7770
 [2]: http://www.sumsar.net/best_online/
