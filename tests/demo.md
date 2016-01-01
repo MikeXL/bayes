@@ -7,10 +7,10 @@ A program introduced in call centre aiming to reduce calls. The experiment carri
 heck, don't say it is too small of sample size, just hypothetical demo.
 
 here is the data on customer call counts, 5 weeks before and after the program for the ten customers.
-
+```
 before <- c(20, 17, 21, 18, 29, 7, 17, 9, 17, 0)
 after  <- c(18, 18, 19, 20, 10, 9, 16, 10, 8, 0)
-
+```
 now we need to know if the program effective.
 
 we can simply do this.
@@ -30,10 +30,10 @@ but that won't be fun at all, let's simulate
 ## 2. yet another call reduction program
 Now we are running another more realistic call reduction program, rather we have the two experiments groups
 call them A (control) and B (treatment), and we monitor the two groups for 10 weeks.
-
+```
 a <- c(12, 14, 16, 6, 13, 11, 10, 18, 10,  9)
 b <- c(8,  5,  9,  9,  8,  7,  6, 10, 18,  7)
-
+```
 As the data follow poisson distribution, again, we can do the boring thing
 
 ```
@@ -60,10 +60,11 @@ you are in.
 
 Again, we have an lovely program aiming improve the FCR, that has run 10 weeks for the two groups
 naming A and B, in both case n=1000.
-
+```
 a <- c(803, 784, 802, 782, 760, 781, 772, 767, 795, 792)
 b <- c(811, 827, 827, 817, 828, 824, 847, 832, 839, 829)
-
+n <- 1000
+```
 as the success of a call or repeats sorta follow Bernoulli trial, we can use binomial test
 in the boring way
 
