@@ -4,15 +4,19 @@ binomial.fun <- function(theta, x, prior) {
   # x[, 1] ... number of success
   # x[, 2] ... number of trials
 
-  # priors
+  # priors  beta(a, b)
   #  flat beta(1, 1)
-  #  jeffery beta(.5, .5)
-  log.priors <- sum(dbeta(theta, prior[1], prior[2], log=T))
+  #  jeffery beta(.5, .5
+  #
+  # log.priors <- sum(dbeta(theta, prior[1], prior[2], log=T))
 
   # likelihood
-  log.like <- sum(dbinom(x[, 1], x[, 2], theta, log=T))
+  # log.like <- sum(dbinom(x[, 1], x[, 2], theta, log=T))
 
-  ll <- log.priors + log.like
+  # ll <- log.priors + log.like
+  # posterior is actually another beta(a+y, b+n-y)
+  # therefore no need to run full monte carlo, just need to sample from 
+  ll <- sum(dbeta(theta, prior[1]+sum(x[ ,1]), prior[2]+sum(x[ ,2]) - sum(x[ ,1]), log=T))
 
   ifelse(is.na(ll) | is.nan(ll), -Inf, ll)
 }
