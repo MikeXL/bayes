@@ -87,3 +87,39 @@ or do it in the exciting way
   summary(mcmc.out.x)
   summary(mcmc.out.y)
 ```
+
+the simplest solution here
+```
+	prior <- rbeta(10000, a, b)
+	posterior <- rbeta(10000, a+y, b+n-y)
+```
+
+
+## one more thing
+I found SAS amazed me with ocean of procedures for doing the similar things,
+here we can just talk on PROC GENMOD
+
+data callcentre;
+	input n calls city$ treatment;
+	ln = log(n);
+	datalines;
+278 10 calgary 0
+148 25 calgary 1
+543 66 edmonton 0
+148 7 edmonton 1
+523 61 van 0
+150 10 van 1
+;
+run;
+
+assume we have collected the call data from number of customers above (n).
+Good habit to start with negative binomial then poisson if desired and when dispersion parameter is 0.
+```
+PROC GENMOD DATA = callcentre;
+  CLASS city treatment;
+  MODEL calls = treatment * city / d=nb offset=ln;
+  BAYES cprior=normal dprior=gamma;
+  LSMEANS treatment * city / diff cl;
+  /*LSMESTIMATES works too but with designate positional*/
+RUN;
+```
