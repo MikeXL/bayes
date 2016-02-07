@@ -34,9 +34,10 @@ hamiltonian.proposal.fun <- function(theta){
 }
 
 # Metroplis Hasting Monte Carlo Simulation
+# currently not support thinning nor multiple chains
 # fun .......... the logged posterior sampling function
 # theta.init ... initial parameter(s) value
-# nmc .......... number of Markov Chains
+# nmc .......... number of iterations for the chain
 # nbi .......... number of burn-ins
 # hmc .......... reserved for future Hamiltonian or RWHMC implementation
 mcmc <- function(fun, theta.init, nmc, nbi, hmc = FALSE, ...) {
