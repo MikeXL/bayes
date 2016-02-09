@@ -50,7 +50,7 @@ mcmc <- function(fun, theta.init, nmc, nbi, hmc = FALSE, ...) {
   if(hmc){
     propose <- hamiltonian.proposal.fun          #hamiltonian
   }else{
-    propose <- metrop.rwalker.proposal.fun       #random walk
+    propose <- metrop.rwalker.proposal.fun       #metroplis
   }
 
   for(i in 1:(iterations-1)) {
