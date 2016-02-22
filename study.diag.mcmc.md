@@ -15,3 +15,16 @@ Diagnostic
 4. geweke diagnostic
 5. gelman diagnostic
 6. acceptance rate = (1 - mean(dupllicated(mc.out))) * 100 %
+
+
+
+### SAS diag plots in R
+here is how to do it in R
+```
+layout(matrix(c(1,1,2,3), 2,2, byrow=T))
+plot(chain, type="l")
+acf(chain)
+plot(density(chain))
+abline(v=quantile(chain, .025))    # quantile based 95% interval
+abline(v=quantile(chain, .975))    # quantile based 95% interval
+```
