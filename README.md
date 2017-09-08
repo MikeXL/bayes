@@ -56,4 +56,4 @@ R CMD INSTALL bayes_0.6.1.tar.gz
 [2]: http://www.sumsar.net/best_online/
 [3]: http://learntech.uwe.ac.uk/da/Default.aspx?pageid=1438
 [4]: https://public.tableau.com/profile/spock/
-[5]: http://mjliu.com/stats/bayes-bbt.png "Bayesian Inference in Big Bang Theory"
+[5]: hhttps://pbs.twimg.com/media/CYAzaK_UEAATYFN.png:large "Bayesian Inference in Big Bang Theory"
