@@ -1,0 +1,80 @@
+%% AMS-LaTeX Created with the Wolfram Language : www.wolfram.com
+
+\documentclass{article}
+\usepackage{amsmath, amssymb, graphics, setspace}
+
+\newcommand{\mathsym}[1]{{}}
+\newcommand{\unicode}[1]{{}}
+
+\newcounter{mathematicapage}
+\begin{document}
+
+\begin{doublespace}
+\noindent\(\pmb{a = \text{RandomVariate}[\text{BetaDistribution}[1450+1, 8500-1450+1], 1000];}\\
+\pmb{b = \text{RandomVariate}[\text{BetaDistribution}[1500+1, 8500-1500+1], 1000];}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{SmoothHistogram}[\{a,b\}]}\)
+\end{doublespace}
+
+\includegraphics{test_gr1.eps}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{SmoothHistogram}[a/b]}\)
+\end{doublespace}
+
+\includegraphics{test_gr2.eps}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{Quantile}[a/b, \{.025, .5, .975\}]}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\{0.905138,0.966548,1.03473\}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{Quantile}[a-b, \{.025, .5, .975\}]}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\{-0.0175594,-0.00585236,0.00594644\}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{TTest}[\{a, b\}]}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\text{3.2245584733017325$\grave{ }$*${}^{\wedge}$-182}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{Mean}[a]}\\
+\pmb{\text{Mean}[b]}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(0.170687\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(0.176589\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{Total}[}\\
+\pmb{\text{Negative}[a-b]}\\
+\pmb{]}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(152 \text{False}+848 \text{True}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{}}\)
+\end{doublespace}
+
+\end{document}
