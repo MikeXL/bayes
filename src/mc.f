@@ -18,8 +18,8 @@ C23456789
         call random_number(chain(1, :)) 
         do 71 i = 2, nmc
           x = chain(i-1, :)
-          call random_num(chain(i, :)
-          call random_num(metropolis) 
+          call random_number(chain(i, :)
+          call random_number(metropolis) 
           h = exp(target(chain(i, :)) - target(x))
           if h > metropolis then 
 C accept
@@ -34,4 +34,15 @@ C Hamiltonian, put out your sketchbook
 C derivatives 
 C
       subroutine ham()
+        do 99 i = 1, nmc
+C where the magic happens 
+          call molecular_dynamics(..., Hi, Hf)
+          h = exp(Hf - Hi)
+          call random_number(metropolis)
+          if h > metropolis then 
+C
+          else
+C
+          end if
+ 99     continue 
       end subroutine ham
