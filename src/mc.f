@@ -19,8 +19,9 @@ C23456789
         do 71 i = 2, nmc
           x = chain(i-1, :)
           call random_num(chain(i, :)
-
-          if rand() < exp(target(chain(i, :)) - target(x))
+          call random_num(metropolis)
+          if exp(target(chain(i, :)) - target(x)) 
+      +          > metropolis 
           then 
 C accept
           else
